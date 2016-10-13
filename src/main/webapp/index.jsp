@@ -23,19 +23,19 @@ td
 <h1>环境变量</h1>
 <table>
 <%
-	Map<String, String> map = System.getenv();
-	//RuntimeMXBean runtimeMxBean = ManagementFactory.getRuntimeMXBean();
-	//Map<String, String> map = runtimeMxBean.getSystemProperties();
+    Map<String, String> map = System.getenv();
+    //RuntimeMXBean runtimeMxBean = ManagementFactory.getRuntimeMXBean();
+    //Map<String, String> map = runtimeMxBean.getSystemProperties();
     for(String key : map.keySet())
     {
-    	out.println("<tr>");
-    	out.println("<td>");
-    	out.println(key);
-    	out.println("</td>");
-    	out.println("<td>");
-    	out.println(map.get(key));
-    	out.println("</td>");
-    	out.println("</tr>");
+        out.println("<tr>");
+        out.println("<td>");
+        out.println(key);
+        out.println("</td>");
+        out.println("<td>");
+        out.println(map.get(key));
+        out.println("</td>");
+        out.println("</tr>");
     }     
 %>
 </table>
@@ -51,7 +51,7 @@ td
     out.println("</td>");
     out.println("</tr>");
     
-	out.println("<tr>");
+    out.println("<tr>");
     out.println("<td>");
     out.println(runtimeMxBean.getSpecVendor()+" || "+runtimeMxBean.getSpecName() +" || "+ runtimeMxBean.getSpecVersion());
     out.println("</td>");
@@ -70,27 +70,27 @@ td
     out.println("FreeMemory="+Runtime.getRuntime().freeMemory()/1024/1024 + "m ");
     out.println("</td>");
     out.println("</tr>");
-	
-	List<MemoryPoolMXBean> memoryPoolMXBeans = ManagementFactory.getMemoryPoolMXBeans();
-	for (MemoryPoolMXBean bean : memoryPoolMXBeans)
-	{
-	    out.println("<tr>");
-    	out.println("<td>");
-    	out.println(bean.getName()+" || "+bean.getType()+" || Init="+bean.getUsage().getInit()/1024/1024+
-    	"m Max="+bean.getUsage().getMax()/1024/1024+"m Used="+bean.getUsage().getUsed()/1024/1024+
-    	"m Committed="+bean.getUsage().getCommitted()/1024/1024+"m ");
-    	out.println("</td>");
-    	out.println("</tr>");
-	}
-	
+    
+    List<MemoryPoolMXBean> memoryPoolMXBeans = ManagementFactory.getMemoryPoolMXBeans();
+    for (MemoryPoolMXBean bean : memoryPoolMXBeans)
+    {
+        out.println("<tr>");
+        out.println("<td>");
+        out.println(bean.getName()+" || "+bean.getType()+" || Init="+bean.getUsage().getInit()/1024/1024+
+        "m Max="+bean.getUsage().getMax()/1024/1024+"m Used="+bean.getUsage().getUsed()/1024/1024+
+        "m Committed="+bean.getUsage().getCommitted()/1024/1024+"m ");
+        out.println("</td>");
+        out.println("</tr>");
+    }
+    
     List<String> arguments = runtimeMxBean.getInputArguments();
     for(String arg:arguments)
     {
         out.println("<tr>");
-    	out.println("<td>");
-    	out.println(arg);
-    	out.println("</td>");
-    	out.println("</tr>");
+        out.println("<td>");
+        out.println(arg);
+        out.println("</td>");
+        out.println("</tr>");
     }
 %>
 </table>
@@ -98,18 +98,18 @@ td
 <h1>系统参数</h1>
 <table>
 <%
-	Properties props = System.getProperties();
-	for(Object o:props.keySet())
-	{
-	    out.println("<tr>");
-    	out.println("<td>");
-    	out.println(o);
-    	out.println("</td>");
-    	out.println("<td>");
-    	out.println(props.get(o));
-    	out.println("</td>");
-    	out.println("</tr>");
-	}
+    Properties props = System.getProperties();
+    for(Object o:props.keySet())
+    {
+        out.println("<tr>");
+        out.println("<td>");
+        out.println(o);
+        out.println("</td>");
+        out.println("<td>");
+        out.println(props.get(o));
+        out.println("</td>");
+        out.println("</tr>");
+    }
 %>
 </table>
 </body>
